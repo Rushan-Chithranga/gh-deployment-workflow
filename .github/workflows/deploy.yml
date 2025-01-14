@@ -14,9 +14,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up GitHub Pages
-        uses: actions/setup-pages@v3
-
       - name: Deploy to GitHub Pages
         run: |
           mkdir public
