@@ -49,3 +49,14 @@ The `deploy.yml` GitHub Actions workflow consists of the following steps:
    ```text
    https://<username>.github.io/gh-deployment-workflow/
    ```
+
+### Key Sections in the README:
+
+1. **Introduction**: Describes what the project is and how GitHub Actions is used for deployment.
+2. **How It Works**: Explains the GitHub Actions workflow and how it triggers on file changes to deploy the website.
+3. **Files in the Repository**: Lists and explains the key files in the repository.
+4. **Workflow Explanation**: Gives a breakdown of what happens in the GitHub Actions workflow.
+5. **How to Set Up and Use**: Step-by-step instructions to set up the repository, commit changes, and enable GitHub Pages.
+6. **License**: Mentions licensing (if applicable).
+
+Let me know if you'd like to add or modify any sections!
