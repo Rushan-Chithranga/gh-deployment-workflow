@@ -1,0 +1,26 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    paths:
+      - 'index.html'
+      - 'styles.css'  
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up GitHub Pages
+        uses: actions/setup-pages@v3
+
+      - name: Deploy to GitHub Pages
+        run: |
+          mkdir public
+          cp index.html public/index.html
+          cp styles.css public/styles.css  # Copy the CSS file
+          touch public/.nojekyll  # Avoid Jekyll processing
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
