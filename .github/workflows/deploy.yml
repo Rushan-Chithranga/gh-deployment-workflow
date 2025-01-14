@@ -1,27 +1,23 @@
-name: Deploy to GitHub Pages
+ame: Deploy to GitHub Pages
 
 on:
   push:
-    branch: [master] 
+    branches: [master]
     paths:
       - "src/index.html"
-      - "src/styles.css" 
+      - "src/styles.css"
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up GitHub Pages
-        uses: actions/setup-pages@v3
+      - name: Check out the repository
+        uses: actions/checkout@v4
 
       - name: Deploy to GitHub Pages
-        run: |
-          mkdir public
-          cp src/index.html public/index.html  # Copy the index.html from src
-          cp src/styles.css public/styles.css  # Copy the styles.css from src
-          touch public/.nojekyll  # Avoid Jekyll processing
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./src
