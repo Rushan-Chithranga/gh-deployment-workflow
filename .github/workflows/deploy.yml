@@ -2,20 +2,22 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [master] 
+    branches: [master]
     paths:
       - "src/index.html"
-      - "src/styles.css" 
+      - "src/styles.css"
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3 
+        uses: actions/checkout@v3
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }} 
-          publish_dir: ./src 
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./src
