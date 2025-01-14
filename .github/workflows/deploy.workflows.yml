@@ -2,9 +2,10 @@ name: Deploy to GitHub Pages
 
 on:
   push:
+    branch: [master]
     paths:
-      - 'index.html'
-      - 'styles.css'  
+      - "index.html"
+      - "styles.css"
 
 jobs:
   deploy:
